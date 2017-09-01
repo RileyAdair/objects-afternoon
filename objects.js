@@ -87,26 +87,26 @@ creditCard[alternating] = [
 // Write a function that will take your creditCard object and user object as arguments and combine them into one object. /* HINT: You will need a for..in loop */
 
 // Code Here
-// function combineObj(creditObj, userObj){
-//   var newObj = {};
+function combineObj(creditObj, userObj){
+  var newObj = {};
 
-//   for(var key in creditObj){
-//     newObj[key] = creditObj[key];
+  for(var key in creditObj){
+    newObj[key] = creditObj[key];
 
-//   }
-//   for(var prop in userObj){
-//     newObj[prop] = userObj[prop];
-//     console.log(userObj[prop]);
-//   }
+  }
+  for(var prop in userObj){
+    newObj[prop] = userObj[prop];
+    // console.log(userObj[prop]);
+  }
 
-//   return newObj;
-// }
-// combineObj(creditCard, user);
+  return newObj;
+}
+combineObj(creditCard, user);
 
 /*Shorthand*/
 var newObj = Object.assign({},creditCard, user);
 
-console.log(newObj);
+// console.log(newObj);
 
 
 
@@ -122,35 +122,35 @@ var obj = {
 
   // Code Here
 
-  /*
-  Which one is better??
-  */
+function loopOver(obj){
+  for(var key in obj){
+    if(key === 'allies'){
+      var allies = obj.allies;
+      for(var i = 0; i < allies.length; i++){
+          if(allies[i] === 'LittleFinger'){
+          allies.splice(i,1,'Dragon Lady');
+        }
+      }
+    }
+    obj.alive = 'More Than Ever';
+  }
+  return obj;
+}
+
+console.log(loopOver(obj));
+
+
 // function loopOver(obj){
 //   var allies = obj.allies;
+//
+//   if(allies.indexOf('LittleFinger') === -1){
+//     allies.push('Dragon Lady');
+//     return allies;
+//   }
 //   for(var i = 0; i < allies.length; i++){
 //     if(allies[i] === 'LittleFinger'){
 //       allies.splice(i,1);
 //     }
 //   }
-//   allies.push('Dragon Lady');
 //   return allies;
 // }
-
-
-
-function loopOver(obj){
-  var allies = obj.allies;
-
-  if(allies.indexOf('LittleFinger') === -1){
-    allies.push('Dragon Lady');
-    return allies;
-  }
-  for(var i = 0; i < allies.length; i++){
-    if(allies[i] === 'LittleFinger'){
-      allies.splice(i,1);
-    }
-  }
-  return allies;
-}
-
-loopOver(obj);
